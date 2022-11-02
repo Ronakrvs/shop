@@ -57,7 +57,7 @@ No Product Available
       ))}
 </Grid>
 
-<Grid item xs={4} > 
+<Grid  style={{marginTop:"2%"}}  item xs={4} > 
 <Card sx={{ minWidth: 275 }}>
       <CardContent>
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
