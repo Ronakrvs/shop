@@ -7,27 +7,27 @@ const INITIAL_STATE = {
 };
 
 const shopReducer = (state = INITIAL_STATE, action) => {
-  console.log(state,action)
+  // console.log(state,action)
   switch (action.type) {
     case actionTypes.GET_ALL_PRODUCT:
-      console.log(state,action)
+      // console.log(state,action)
       return {
         ...state,
         products:action.payload
       };
     case actionTypes.ADD_TO_CART:
-      // Great Item data from products array
+      // console.log(state)
       const item = state.products.find(
         (product) => product.id === action.payload.id
       );
-      // Check if Item is in cart already
-      const inCart = state.cart.find((item) =>
+      console.log(item)
+      const haveCart = state.cart.find((item) =>
         item.id === action.payload.id ? true : false
       );
 
       return {
         ...state,
-        cart: inCart
+        cart: haveCart
           ? state.cart.map((item) =>
               item.id === action.payload.id
                 ? { ...item, qty: item.qty + 1 }
@@ -40,7 +40,7 @@ const shopReducer = (state = INITIAL_STATE, action) => {
         ...state,
         cart: state.cart.filter((item) => item.id !== action.payload.id),
       };
-    case actionTypes.ADJUST_ITEM_QTY:
+    case actionTypes.ITEM_QTY:
       return {
         ...state,
         cart: state.cart.map((item) =>
@@ -49,7 +49,7 @@ const shopReducer = (state = INITIAL_STATE, action) => {
             : item
         ),
       };
-    case actionTypes.LOAD_CURRENT_ITEM:
+    case actionTypes.CURRENT_ITEM:
       return {
         ...state,
         currentItem: action.payload,

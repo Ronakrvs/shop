@@ -1,13 +1,7 @@
-import React,{useEffect} from "react";
+import React from "react";
 import {Grid} from '@mui/material'
-import { getProduct } from '../../redux/Shopping/shopping-actions';
-
-
-// Redux
 import { connect } from "react-redux";
-
 import Product from "./Product/Product";
-import { useDispatch } from "react-redux";
 
 const Products = ({ products }) => {
   console.log(products)

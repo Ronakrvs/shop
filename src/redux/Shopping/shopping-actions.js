@@ -1,16 +1,16 @@
 import * as actionTypes from "./shopping-types";
 
-export const addToCart = (itemID) => {
+export const addToCart = (id) => {
   return {
     type: actionTypes.ADD_TO_CART,
     payload: {
-      id: itemID,
+      id: id,
     },
   };
 };
 
 export const getProduct = ()=>async(dispatch)=>{
-  console.log("dispatch",dispatch)
+  // console.log("dispatch",dispatch)
 
  
       const data= await (await fetch('https://fakestoreapi.com/products')).json()
@@ -36,7 +36,7 @@ export const removeFromCart = (itemID) => {
 
 export const adjustItemQty = (itemID, qty) => {
   return {
-    type: actionTypes.ADJUST_ITEM_QTY,
+    type: actionTypes.ITEM_QTY,
     payload: {
       id: itemID,
       qty,
@@ -44,9 +44,9 @@ export const adjustItemQty = (itemID, qty) => {
   };
 };
 
-export const loadCurrentItem = (item) => {
+export const CurrentItem = (item) => {
   return {
-    type: actionTypes.LOAD_CURRENT_ITEM,
+    type: actionTypes.CURRENT_ITEM,
     payload: item,
   };
 };
